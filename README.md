@@ -1,15 +1,12 @@
 ## Role Name: Docker
-----------------
 
 Ansible role which allows you to install Docker on Debian systems.
 
 ## Requirements
-----------------
 
 None.
 
 ## Role Variables
-----------------
 
 Docker repository URL depending on distro. 
 ````yaml
@@ -29,12 +26,10 @@ docker_users: []
 ````
 
 ## Dependencies
-----------------
 
 None.
 
 ## Example Playbook
-----------------
 
 ````yaml
     - hosts: all
@@ -44,11 +39,9 @@ None.
 ````
 
 ## License
-----------------
 
 MIT / BSD
 
 ## Author Information
-----------------
 
 Role created by Piotr Kurylak.
