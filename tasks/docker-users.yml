@@ -1,0 +1,8 @@
+---
+- name: Ensure users are added to the docker group.
+  user:
+    name: "{{ item }}"
+    group: docker
+    append: yes
+
+  loop: "{{ docker_users }}"
