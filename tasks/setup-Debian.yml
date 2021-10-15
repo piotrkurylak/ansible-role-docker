@@ -6,6 +6,7 @@
     update_cache: yes
 
   loop:
+   - docker-ce
    - docker
    - docker-engine
    - docker.io
@@ -30,7 +31,7 @@
 
 - name: Add Docker repository.
   apt_repository:
+    filename: docker
     repo: "{{ docker_apt_repository }}"
     state: present
     update_cache: yes
-    
