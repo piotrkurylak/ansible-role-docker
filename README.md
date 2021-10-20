@@ -17,7 +17,8 @@ Docker repository variables. You can set up nightly or test release if you want.
 ````yaml
 docker_apt_arch: amd64
 docker_apt_release_channel: stable
-docker_apt_repository: "deb [arch={{ docker_apt_arch }}] {{ docker_repo_url }} {{ ansible_distribution_release }} {{ docker_apt_release_channel }}"
+docker_apt_keyring_path: signed-by=/usr/share/keyrings/docker-archive-keyring.gpg
+docker_apt_repository: "deb [arch={{ docker_apt_arch }} {{ docker_apt_keyring_path }}] {{ docker_repo_url }} {{ ansible_distribution_release }} {{ docker_apt_release_channel }}"
 ````
 
 You can add users which be added to docker group. (Run docker commands without sudo)
