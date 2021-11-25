@@ -36,7 +36,7 @@ None.
     - hosts: all
       become: yes
       roles:
-         - docker
+         - ansible-role-docker
 ````
 
 ## License
