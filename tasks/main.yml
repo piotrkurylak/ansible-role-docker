@@ -12,6 +12,12 @@
     - docker-ce-cli
     - containerd.io
 
+- name: Install Docker Compose.
+  get_url:
+    url: "{{ docker_compose_repo_url }}"
+    dest: "{{ docker_compose_dest_path }}"
+    mode: "0755"
+
 - name: Ensure Docker is started and enabled at boot.
   service:
     name: docker
