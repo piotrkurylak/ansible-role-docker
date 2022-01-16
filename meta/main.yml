@@ -20,9 +20,9 @@ galaxy_info:
       - impish 21.10
 
   - name: CentOS/RedHat
-      versions:
-      - 7
-      - 8
+    versions:
+    - 7
+    - 8
 
   galaxy_tags:
     - docker
