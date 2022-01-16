@@ -1,32 +1,23 @@
 ---
-- name: Ensure Docker older versions are uninstalled.
+- name: Ensure Docker's older versions are uninstalled.
   apt:
     name: "{{ item }}"
     state: absent
     update_cache: yes
 
-  loop:
-   - docker-ce
-   - docker
-   - docker-engine
-   - docker.io
-   - containerd.io
-   - runc
+  loop: "{{ docker_old_versions }}"
 
-- name: Ensure all dependencies are installed.
+- name: Ensure all prerequisites are installed.
   apt:
     name: "{{ item }}"
     state: present
 
-  loop:
-    - apt-transport-https
-    - ca-certificates
-    - gnupg
+  loop: "{{ docker_prerequisites }}"
 
 - name: Add Docker GPG key.
   apt_key:
-    url: "{{ docker_repo_url }}/gpg"
-    keyring: /usr/share/keyrings/docker-archive-keyring.gpg
+    url: "{{ docker_apt_repo_url }}/gpg"
+    keyring: "/usr/share/keyrings/docker-archive-keyring.gpg"
     state: present
 
 - name: Add Docker repository.
@@ -34,4 +25,7 @@
     filename: docker
     repo: "{{ docker_apt_repository }}"
     state: present
-    update_cache: yes
+  notify: update cache
+
+- name: Flush handlers.
+  meta: flush_handlers
