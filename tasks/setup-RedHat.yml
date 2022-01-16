@@ -1,0 +1,22 @@
+---
+
+- name: Ensure Docker's older versions are uninstalled.
+  yum:
+    name: "{{ item }}"
+    state: absent
+    update_cache: yes
+
+  loop: "{{ docker_old_versions }}"
+
+- name: Add Docker GPG key.
+  rpm_key:
+    key: "{{ docker_yum_gpg_key }}"
+    state: present
+
+- name: Add Docker repository.
+  get_url:
+    dest: "{{ docker_yum_repo_path }}"
+    url: "{{ docker_yum_repo_url }}"
+    mode: "0644"
+    owner: root
+    group: root
