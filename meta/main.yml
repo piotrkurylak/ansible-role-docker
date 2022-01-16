@@ -1,6 +1,6 @@
 galaxy_info:
   author: Piotr Kurylak
-  description: Ansible role for installing Docker on Debian systems.
+  description: Ansible role for installing Docker on Debian/Ubuntu and CentOS/RedHat systems.
 
   license: MIT / BSD
 
@@ -14,10 +14,15 @@ galaxy_info:
     
   - name: Ubuntu
     versions:
-    - bionic 18.04
-    - focal 20.04
-    - groovy 20.10
-    - hirsute 21.04
+      - bionic 18.04
+      - focal 20.04
+      - hirsute 21.04
+      - impish 21.10
+
+  - name: CentOS/RedHat
+      versions:
+      - 7
+      - 8
 
   galaxy_tags:
     - docker
