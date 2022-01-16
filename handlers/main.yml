@@ -4,3 +4,6 @@
     name: docker
     state: restarted
 
+- name: update cache
+  apt:
+    update_cache: yes
